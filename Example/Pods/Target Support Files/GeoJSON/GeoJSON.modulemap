@@ -1,0 +1,6 @@
+framework module GeoJSON {
+  umbrella header "GeoJSON-umbrella.h"
+
+  export *
+  module * { export * }
+}

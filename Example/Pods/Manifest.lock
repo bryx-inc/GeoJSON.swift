@@ -1,0 +1,14 @@
+PODS:
+  - GeoJSON (0.1.0)
+
+DEPENDENCIES:
+  - GeoJSON (from `../`)
+
+EXTERNAL SOURCES:
+  GeoJSON:
+    :path: ../
+
+SPEC CHECKSUMS:
+  GeoJSON: 1de2d07d153fb1744ac0688b674752545fa7db4c
+
+COCOAPODS: 0.38.0
