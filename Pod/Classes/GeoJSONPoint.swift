@@ -15,8 +15,10 @@ public class GeoJSONPoint: GeoJSONFeature {
     public override class var type: String { return "Point" }
     
     public override class func fromDictionary(dictionary: [String: AnyObject]) -> GeoJSONPoint? {
-        if let coordinate = (dictionary["coordinates"] as? [Double])?.coordinateRepresentation
-            where CLLocationCoordinate2DIsValid(coordinate) {
+        if let
+            type = dictionary["type"] as? String,
+            coordinate = (dictionary["coordinates"] as? [Double])?.coordinateRepresentation
+            where CLLocationCoordinate2DIsValid(coordinate) && type == self.type {
                 return GeoJSONPoint(coordinate: coordinate)
         }
         return nil

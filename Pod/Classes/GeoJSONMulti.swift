@@ -14,7 +14,10 @@ public class GeoJSONMulti<FeatureType where FeatureType: GeoJSONFeature>: GeoJSO
     public let features: [FeatureType]
     
     public override class func fromDictionary(locationDictionary: [String: AnyObject]) -> Self?  {
-        if let featureArrays = locationDictionary["coordinates"] as? [AnyObject] {
+        if let
+            type = locationDictionary["type"] as? String,
+            featureArrays = locationDictionary["coordinates"] as? [AnyObject]
+        where type == self.type {
             let features = mapMaybe(featureArrays) { FeatureType.fromDictionary(["coordinates": $0]) }
             return self(features: features)
         }

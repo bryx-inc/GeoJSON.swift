@@ -13,7 +13,10 @@ public class GeoJSONLineString: GeoJSONFeature {
     public let coordinates: [CLLocationCoordinate2D]
     
     public override class func fromDictionary(locationDictionary: [String: AnyObject]) -> GeoJSONLineString?  {
-        if let coordinatePairs = (locationDictionary["coordinates"] as? [[[Double]]])?.first {
+        if let
+            type = locationDictionary["type"] as? String,
+            coordinatePairs = (locationDictionary["coordinates"] as? [[[Double]]])?.first
+        where type == self.type {
             let coordinates = mapMaybe(coordinatePairs) { $0.coordinateRepresentation }
             return GeoJSONLineString(coordinates: coordinates)
         }

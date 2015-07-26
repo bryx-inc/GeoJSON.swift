@@ -17,7 +17,10 @@ public class GeoJSONPolygon: GeoJSONFeature {
     public override class var type: String { return "Polygon" }
     
     public override class func fromDictionary(dict: [String: AnyObject]) -> GeoJSONPolygon? {
-        if let ringArrays = dict["coordinates"] as? [[[Double]]] {
+        if let
+            type = dict["type"] as? String,
+            ringArrays = dict["coordinates"] as? [[[Double]]]
+        where type == self.type {
             let rings = ringArrays.map { mapMaybe($0) { pair in pair.coordinateRepresentation } }
             return GeoJSONPolygon(rings: rings)
         }
