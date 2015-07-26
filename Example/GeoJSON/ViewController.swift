@@ -28,6 +28,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             "type": "Point"
         ]
         if let point = GeoJSONPoint.fromDictionary(geoJSONDictionary) {
+            println(point.dictionaryRepresentation)
             self.mapView.setRegion(MKCoordinateRegion(center: point.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.0005, longitudeDelta: 0.0005)), animated: true)
             let annotation = MKPointAnnotation()
             annotation.coordinate = point.coordinate
