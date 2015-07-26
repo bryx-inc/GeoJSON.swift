@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		D2763AF690BF76B4314A4942 /* Pods_GeoJSON_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9870E80B06AC5FAF472CC7D8 /* Pods_GeoJSON_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DCB9E6DE1B65516200E2BA61 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB9E6DD1B65516200E2BA61 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,12 +39,13 @@
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		607FACE51AFB9204008FA782 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Tests.xctest; path = GeoJSON_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACE51AFB9204008FA782 /* GeoJSON_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoJSON_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		8EE9F1E0B5D4FA3F9099D9E2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9870E80B06AC5FAF472CC7D8 /* Pods_GeoJSON_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoJSON_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C067965C14C8CD66979157CE /* Pods_GeoJSON_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoJSON_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCB9E6DD1B65516200E2BA61 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E00502F289F41C7CFC046FE9 /* Pods-GeoJSON_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoJSON_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoJSON_Tests/Pods-GeoJSON_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E80B63FE4C7E9BCFA295EC33 /* GeoJSON.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GeoJSON.podspec; path = ../GeoJSON.podspec; sourceTree = "<group>"; };
 		E84B99BE7A872B69427DBF14 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCB9E6DE1B65516200E2BA61 /* MapKit.framework in Frameworks */,
 				D2763AF690BF76B4314A4942 /* Pods_GeoJSON_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,7 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* GeoJSON_Example.app */,
-				607FACE51AFB9204008FA782 /* Tests.xctest */,
+				607FACE51AFB9204008FA782 /* GeoJSON_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 		AB19C5EDD4A0EB49C9AB05E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DCB9E6DD1B65516200E2BA61 /* MapKit.framework */,
 				9870E80B06AC5FAF472CC7D8 /* Pods_GeoJSON_Example.framework */,
 				C067965C14C8CD66979157CE /* Pods_GeoJSON_Tests.framework */,
 			);
@@ -200,7 +204,7 @@
 			);
 			name = GeoJSON_Tests;
 			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* Tests.xctest */;
+			productReference = 607FACE51AFB9204008FA782 /* GeoJSON_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -209,6 +213,7 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {

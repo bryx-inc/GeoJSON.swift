@@ -7,18 +7,20 @@
 //
 
 import UIKit
+import GeoJSON
+import MapKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var mapView: MKMapView!
+    
+    override func viewWillAppear(animated: Bool) {
+        let geoJSONDictionary = [
+            "coordinates": [-77.595453, 43.155059]
+        ]
+        if let point = GeoJSONPoint.fromDictionary(geoJSONDictionary) {
+            self.mapView.setRegion(MKCoordinateRegion(center: point.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.0005, longitudeDelta: 0.0005)), animated: true)
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 
