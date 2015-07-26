@@ -11,8 +11,6 @@ A GeoJSON Model for Swift 1.2. Compatible with iOS 7 and up.
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
-
 ## Installation
 
 GeoJSON is available through [CocoaPods](http://cocoapods.org). To install

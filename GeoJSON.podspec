@@ -10,18 +10,11 @@
 Pod::Spec.new do |s|
   s.name             = "GeoJSON"
   s.version          = "0.1.0"
-  s.summary          = "A short description of GeoJSON."
-  s.description      = <<-DESC
-                       An optional longer description of GeoJSON
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/GeoJSON"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.summary          = "A GeoJSON model for Swift 1.2."
+  s.homepage         = "https://github.com/bryx-inc/GeoJSON.swift"
   s.license          = 'MIT'
   s.author           = { "Harlan Haskins" => "harlan@harlanhaskins.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/GeoJSON.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/bryx-inc/GeoJSON.swift.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '8.0'
