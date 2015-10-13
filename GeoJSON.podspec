@@ -9,13 +9,12 @@
 
 Pod::Spec.new do |s|
   s.name             = "GeoJSON"
-  s.version          = "0.1.0"
-  s.summary          = "A GeoJSON model for Swift 1.2."
+  s.version          = "0.2.0"
+  s.summary          = "A GeoJSON model for Swift 2.0."
   s.homepage         = "https://github.com/bryx-inc/GeoJSON.swift"
   s.license          = 'MIT'
   s.author           = { "Harlan Haskins" => "harlan@harlanhaskins.com" }
   s.source           = { :git => "https://github.com/bryx-inc/GeoJSON.swift.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
@@ -24,8 +23,4 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'GeoJSON' => ['Pod/Assets/*.png']
   }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
