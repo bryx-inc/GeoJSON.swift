@@ -22,14 +22,12 @@
 		DCB9E6D21B654E9B00E2BA61 /* GeoJSONMulti.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9E6CB1B654E9B00E2BA61 /* GeoJSONMulti.swift */; };
 		DCB9E6D31B654E9B00E2BA61 /* GeoJSONPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9E6CC1B654E9B00E2BA61 /* GeoJSONPoint.swift */; };
 		DCB9E6D41B654E9B00E2BA61 /* GeoJSONPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9E6CD1B654E9B00E2BA61 /* GeoJSONPolygon.swift */; };
-		DCB9E6D51B654E9B00E2BA61 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9E6CE1B654E9B00E2BA61 /* Utilities.swift */; };
 		DCB9E6D61B654F5600E2BA61 /* GeoJSONFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9E6C81B654E9B00E2BA61 /* GeoJSONFeature.swift */; };
 		DCB9E6D71B654F5800E2BA61 /* GeoJSONFeatureCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9E6C91B654E9B00E2BA61 /* GeoJSONFeatureCollection.swift */; };
 		DCB9E6D81B654F5900E2BA61 /* GeoJSONLineString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9E6CA1B654E9B00E2BA61 /* GeoJSONLineString.swift */; };
 		DCB9E6D91B654F5B00E2BA61 /* GeoJSONMulti.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9E6CB1B654E9B00E2BA61 /* GeoJSONMulti.swift */; };
 		DCB9E6DA1B654F5D00E2BA61 /* GeoJSONPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9E6CC1B654E9B00E2BA61 /* GeoJSONPoint.swift */; };
 		DCB9E6DB1B654F5F00E2BA61 /* GeoJSONPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9E6CD1B654E9B00E2BA61 /* GeoJSONPolygon.swift */; };
-		DCB9E6DC1B654F6000E2BA61 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9E6CE1B654E9B00E2BA61 /* Utilities.swift */; };
 		E6546051F2301A462035DAB7B74FCA46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9835CA00E833F47B702F17C020A6944 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,7 +91,6 @@
 		DCB9E6CB1B654E9B00E2BA61 /* GeoJSONMulti.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoJSONMulti.swift; sourceTree = "<group>"; };
 		DCB9E6CC1B654E9B00E2BA61 /* GeoJSONPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoJSONPoint.swift; sourceTree = "<group>"; };
 		DCB9E6CD1B654E9B00E2BA61 /* GeoJSONPolygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoJSONPolygon.swift; sourceTree = "<group>"; };
-		DCB9E6CE1B654E9B00E2BA61 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		EC2EEC2CAEE1FC7826FCC4FE02581655 /* GeoJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GeoJSON.xcconfig; sourceTree = "<group>"; };
 		EC9CD6854C764246E20FF229C730FE3F /* Pods-GeoJSON_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GeoJSON_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		EDEAEAA55F235B3F05F0841BD1CBD428 /* GeoJSON.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoJSON.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,7 +204,6 @@
 				DCB9E6CB1B654E9B00E2BA61 /* GeoJSONMulti.swift */,
 				DCB9E6CC1B654E9B00E2BA61 /* GeoJSONPoint.swift */,
 				DCB9E6CD1B654E9B00E2BA61 /* GeoJSONPolygon.swift */,
-				DCB9E6CE1B654E9B00E2BA61 /* Utilities.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -440,7 +436,6 @@
 				DCB9E6D21B654E9B00E2BA61 /* GeoJSONMulti.swift in Sources */,
 				DCB9E6D11B654E9B00E2BA61 /* GeoJSONLineString.swift in Sources */,
 				DCB9E6D41B654E9B00E2BA61 /* GeoJSONPolygon.swift in Sources */,
-				DCB9E6D51B654E9B00E2BA61 /* Utilities.swift in Sources */,
 				DCB9E6D01B654E9B00E2BA61 /* GeoJSONFeatureCollection.swift in Sources */,
 				DCB9E6CF1B654E9B00E2BA61 /* GeoJSONFeature.swift in Sources */,
 			);
@@ -454,7 +449,6 @@
 				DCB9E6DB1B654F5F00E2BA61 /* GeoJSONPolygon.swift in Sources */,
 				DCB9E6D71B654F5800E2BA61 /* GeoJSONFeatureCollection.swift in Sources */,
 				DCB9E6D81B654F5900E2BA61 /* GeoJSONLineString.swift in Sources */,
-				DCB9E6DC1B654F6000E2BA61 /* Utilities.swift in Sources */,
 				DCB9E6DA1B654F5D00E2BA61 /* GeoJSONPoint.swift in Sources */,
 				DCB9E6D91B654F5B00E2BA61 /* GeoJSONMulti.swift in Sources */,
 			);

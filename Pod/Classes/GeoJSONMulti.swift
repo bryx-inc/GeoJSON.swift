@@ -1,34 +1,30 @@
 //
 //  GeoJSONMultiPolygon.swift
+//  Bryx 911
 //
 //  Created by Harlan Haskins on 7/7/15.
-//  Copyright (c) 2015 Bryx, Inc. All rights reserved.
+//  Copyright (c) 2015 Bryx. All rights reserved.
 //
 
 import Foundation
 import CoreLocation
 
-public class GeoJSONMulti<FeatureType where FeatureType: GeoJSONFeature>: GeoJSONFeature {
-    public override class var type: String { return "Multi" + FeatureType.type }
+public struct GeoJSONMulti<FeatureType where FeatureType: GeoJSONFeature>: GeoJSONFeature {
+    public static var type: String { return "Multi" + FeatureType.type }
     
     public let features: [FeatureType]
     
-    public override class func fromDictionary(locationDictionary: [String: AnyObject]) -> Self?  {
-        if let
-            type = locationDictionary["type"] as? String,
-            featureArrays = locationDictionary["coordinates"] as? [AnyObject]
-        where type == self.type {
-            let features = mapMaybe(featureArrays) { FeatureType.fromDictionary(["coordinates": $0]) }
-            return self(features: features)
-        }
-        return nil
+    public init?(dictionary: [String: AnyObject]) {
+        guard let featureArrays = dictionary["coordinates"] as? [AnyObject] else { return nil }
+        let features = featureArrays.flatMap { FeatureType.init(dictionary: ["coordinates": $0]) }
+        self.init(features: features)
     }
     
-    public required init(features: [FeatureType]) {
+    public init(features: [FeatureType]) {
         self.features = features
     }
     
-    public override var geometryCoordinates: [AnyObject] {
+    public var geometryCoordinates: [AnyObject] {
         return self.features.map { $0.geometryCoordinates }
     }
 }

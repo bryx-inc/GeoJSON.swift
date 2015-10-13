@@ -27,18 +27,20 @@ class ViewController: UIViewController, MKMapViewDelegate {
             "coordinates": [-77.595453, 43.155059],
             "type": "Point"
         ]
-        if let point = GeoJSONPoint.fromDictionary(geoJSONDictionary) {
-            println(point.dictionaryRepresentation)
-            self.mapView.setRegion(MKCoordinateRegion(center: point.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.0005, longitudeDelta: 0.0005)), animated: true)
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = point.coordinate
-            self.mapView.addAnnotation(annotation)
-        }
+        guard let point = GeoJSONPoint(dictionary: geoJSONDictionary) else { return }
+        print(point.dictionaryRepresentation)
+        self.mapView.setRegion(MKCoordinateRegion(center: point.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.0005, longitudeDelta: 0.0005)), animated: true)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = point.coordinate
+        self.mapView.addAnnotation(annotation)
     }
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let view = MKPinAnnotationView()
         view.animatesDrop = true
+        if #available(iOS 9.0, *) {
+            view.pinTintColor = UIColor.greenColor()
+        }
         return view
     }
 }

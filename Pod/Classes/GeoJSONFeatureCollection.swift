@@ -1,28 +1,28 @@
 //
 //  GeoJSONFeatureCollection.swift
+//  Bryx 911
 //
 //  Created by Harlan Haskins on 7/7/15.
-//  Copyright (c) 2015 Bryx, Inc. All rights reserved.
+//  Copyright (c) 2015 Bryx. All rights reserved.
 //
 
 import Foundation
 import CoreLocation
 
-public class GeoJSONFeatureCollection: GeoJSONFeature {
+public struct GeoJSONFeatureCollection: GeoJSONFeature {
 
     private(set) var features = [GeoJSONFeature]()
     
-    private class func featuresFromDictionary(dictionary: [String: AnyObject]) -> [GeoJSONFeature] {
+    private static func featuresFromDictionary(dictionary: [String: AnyObject]) -> [GeoJSONFeature] {
         var features = [GeoJSONFeature]()
-        if let type = dictionary["type"] as? String {
-            if type == "GeometryCollection" {
-                if let geometries = dictionary["geometries"] as? [[String: AnyObject]] {
-                    features += geometries.flatMap { self.featuresFromDictionary($0) }
-                }
-            } else {
-                if let feature = initializerForType(type)?(dictionary) as? GeoJSONFeature {
-                    features.append(feature)
-                }
+        guard let type = dictionary["type"] as? String else { return [] }
+        if type == "GeometryCollection" {
+            if let geometries = dictionary["geometries"] as? [[String: AnyObject]] {
+                features += geometries.flatMap { self.featuresFromDictionary($0) }
+            }
+        } else {
+            if let featureType = featureTypeForType(type), feature = featureType.init(dictionary: dictionary) {
+                features.append(feature)
             }
         }
         return features
@@ -32,21 +32,21 @@ public class GeoJSONFeatureCollection: GeoJSONFeature {
         self.features = GeoJSONFeatureCollection.featuresFromDictionary(dictionary)
     }
 
-    public override var dictionaryRepresentation: [String: AnyObject] {
+    public var dictionaryRepresentation: [String: AnyObject] {
         return [
             "type": "FeatureCollection",
             "features": self.features.map { $0.dictionaryRepresentation }
         ]
     }
     
-    private static func initializerForType(type: String) -> ([String: AnyObject] -> AnyObject?)? {
+    private static func featureTypeForType(type: String) -> GeoJSONFeature.Type? {
         switch type {
-        case GeoJSONPoint.type: return GeoJSONPoint.fromDictionary
-        case GeoJSONPolygon.type: return GeoJSONPolygon.fromDictionary
-        case GeoJSONMultiPoint.type: return GeoJSONMultiPoint.fromDictionary
-        case GeoJSONLineString.type: return GeoJSONLineString.fromDictionary
-        case GeoJSONMultiPolygon.type: return GeoJSONMultiPolygon.fromDictionary
-        case GeoJSONMultiLineString.type: return GeoJSONMultiLineString.fromDictionary
+        case GeoJSONPoint.type: return GeoJSONPoint.self
+        case GeoJSONPolygon.type: return GeoJSONPolygon.self
+        case GeoJSONMultiPoint.type: return GeoJSONMultiPoint.self
+        case GeoJSONLineString.type: return GeoJSONLineString.self
+        case GeoJSONMultiPolygon.type: return GeoJSONMultiPolygon.self
+        case GeoJSONMultiLineString.type: return GeoJSONMultiLineString.self
         default: return nil
         }
     }

@@ -1,33 +1,29 @@
 //
 //  GeoJSONLineString.swift
+//  Bryx 911
 //
 //  Created by Harlan Haskins on 7/7/15.
-//  Copyright (c) 2015 Bryx, Inc. All rights reserved.
+//  Copyright (c) 2015 Bryx. All rights reserved.
 //
 
 import Foundation
 import CoreLocation
 
-public class GeoJSONLineString: GeoJSONFeature {
-    public override class var type: String { return "LineString" }
-    public let coordinates: [CLLocationCoordinate2D]
+public struct GeoJSONLineString: GeoJSONFeature {
+    public static var type: String { return "LineString" }
+    internal let coordinates: [CLLocationCoordinate2D]
     
-    public override class func fromDictionary(locationDictionary: [String: AnyObject]) -> GeoJSONLineString?  {
-        if let
-            type = locationDictionary["type"] as? String,
-            coordinatePairs = (locationDictionary["coordinates"] as? [[[Double]]])?.first
-        where type == self.type {
-            let coordinates = mapMaybe(coordinatePairs) { $0.coordinateRepresentation }
-            return GeoJSONLineString(coordinates: coordinates)
-        }
-        return nil
+    public init?(dictionary: [String: AnyObject]) {
+        guard let coordinatePairs = (dictionary["coordinates"] as? [[[Double]]])?.first else { return nil }
+        let coordinates = coordinatePairs.flatMap { $0.coordinateRepresentation }
+        self.init(coordinates: coordinates)
     }
     
     public init(coordinates: [CLLocationCoordinate2D]) {
         self.coordinates = coordinates
     }
     
-    public override var geometryCoordinates: [AnyObject] {
+    public var geometryCoordinates: [AnyObject] {
         return self.coordinates.map { $0.geoJSONRepresentation }
     }
 }

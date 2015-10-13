@@ -1,37 +1,31 @@
 //
 //  GeoJSONPolygon.swift
+//  Bryx 911
 //
 //  Created by Harlan Haskins on 7/7/15.
-//  Copyright (c) 2015 Bryx, Inc. All rights reserved.
+//  Copyright (c) 2015 Bryx. All rights reserved.
 //
 
 import Foundation
 import CoreLocation
 
-/// A class representing a GeoJSON Polygon.
-/// A polygon consists of multiple 'rings', which are lists of coordinates.
-public class GeoJSONPolygon: GeoJSONFeature {
+public struct GeoJSONPolygon: GeoJSONFeature {
     public typealias Ring = [CLLocationCoordinate2D]
     public let rings: [Ring]
     
-    public override class var type: String { return "Polygon" }
+    public static var type: String { return "Polygon" }
     
-    public override class func fromDictionary(dict: [String: AnyObject]) -> GeoJSONPolygon? {
-        if let
-            type = dict["type"] as? String,
-            ringArrays = dict["coordinates"] as? [[[Double]]]
-        where type == self.type {
-            let rings = ringArrays.map { mapMaybe($0) { pair in pair.coordinateRepresentation } }
-            return GeoJSONPolygon(rings: rings)
-        }
-        return nil
+    public init?(dictionary: [String: AnyObject]) {
+        guard let ringArrays = dictionary["coordinates"] as? [[[Double]]] else { return nil }
+        let rings = ringArrays.map { $0.flatMap { pair in pair.coordinateRepresentation } }
+        self.init(rings: rings)
     }
     
     public init(rings: [Ring]) {
         self.rings = rings
     }
     
-    public override var geometryCoordinates: [AnyObject] {
-        return self.rings.map { mapMaybe($0) { $0.geoJSONRepresentation } }
+    public var geometryCoordinates: [AnyObject] {
+        return self.rings.map { $0.flatMap { $0.geoJSONRepresentation } }
     }
 }
