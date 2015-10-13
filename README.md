@@ -1,6 +1,6 @@
 # GeoJSON
 
-A GeoJSON Model for Swift 1.2. Compatible with iOS 7 and up.
+A GeoJSON Model for Swift 2.0. Compatible with iOS 7 and up.
 
 [![Version](https://img.shields.io/cocoapods/v/GeoJSON.svg?style=flat)](http://cocoapods.org/pods/GeoJSON)
 [![License](https://img.shields.io/cocoapods/l/GeoJSON.svg?style=flat)](http://cocoapods.org/pods/GeoJSON)
@@ -17,9 +17,8 @@ let geoJSONDictionary: [String: AnyObject] = [
     "coordinates": [-77.595453, 43.155059],
     "type": "Point"
 ]
-if let point = GeoJSONPoint.fromDictionary(geoJSONDictionary) {
-    println(point.dictionaryRepresentation)
-}
+guard let point = GeoJSONPoint(dictionary: geoJSONDictionary) else { return }
+print(point.dictionaryRepresentation)
 /*
 [properties: {
 }, geometry: {
