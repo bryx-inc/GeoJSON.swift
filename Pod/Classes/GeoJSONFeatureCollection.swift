@@ -16,14 +16,10 @@ public struct GeoJSONFeatureCollection: GeoJSONFeature {
     private static func featuresFromDictionary(dictionary: [String: AnyObject]) -> [GeoJSONFeature] {
         var features = [GeoJSONFeature]()
         guard let type = dictionary["type"] as? String else { return [] }
-        if type == "GeometryCollection" {
-            if let geometries = dictionary["geometries"] as? [[String: AnyObject]] {
-                features += geometries.flatMap { self.featuresFromDictionary($0) }
-            }
-        } else {
-            if let featureType = featureTypeForType(type), feature = featureType.init(dictionary: dictionary) {
-                features.append(feature)
-            }
+        if let geometries = dictionary["geometries"] as? [[String: AnyObject]] where type == "GeometryCollection" {
+            features += geometries.flatMap { self.featuresFromDictionary($0) }
+        } else if let featureType = GeoJSONFeatureCollection.typeMap[type], feature = featureType.init(dictionary: dictionary) {
+            features.append(feature)
         }
         return features
     }
@@ -39,15 +35,12 @@ public struct GeoJSONFeatureCollection: GeoJSONFeature {
         ]
     }
     
-    private static func featureTypeForType(type: String) -> GeoJSONFeature.Type? {
-        switch type {
-        case GeoJSONPoint.type: return GeoJSONPoint.self
-        case GeoJSONPolygon.type: return GeoJSONPolygon.self
-        case GeoJSONMultiPoint.type: return GeoJSONMultiPoint.self
-        case GeoJSONLineString.type: return GeoJSONLineString.self
-        case GeoJSONMultiPolygon.type: return GeoJSONMultiPolygon.self
-        case GeoJSONMultiLineString.type: return GeoJSONMultiLineString.self
-        default: return nil
-        }
-    }
+    static let typeMap: [String: GeoJSONFeature.Type] = [
+        GeoJSONPoint.type: GeoJSONPoint.self,
+        GeoJSONPolygon.type: GeoJSONPolygon.self,
+        GeoJSONMultiPoint.type: GeoJSONMultiPoint.self,
+        GeoJSONLineString.type: GeoJSONLineString.self,
+        GeoJSONMultiPolygon.type: GeoJSONMultiPolygon.self,
+        GeoJSONMultiLineString.type: GeoJSONMultiLineString.self
+    ]
 }
