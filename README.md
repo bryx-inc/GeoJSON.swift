@@ -40,9 +40,13 @@ it, simply add the following line to your Podfile:
 pod "GeoJSON"
 ```
 
+## Maintainer
+
+Adam Binsz ([@adambinsz](https://github.com/adambinsz))
+
 ## Author
 
-Harlan Haskins, harlan@harlanhaskins.com
+Harlan Haskins ([@harlanhaskins](https://github.com/harlanhaskins))
 
 ## License
 
