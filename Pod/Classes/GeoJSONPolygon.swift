@@ -26,6 +26,6 @@ public struct GeoJSONPolygon: GeoJSONFeature {
     }
     
     public var geometryCoordinates: [Any] {
-        return self.rings.map { $0.flatMap { $0.geoJSONRepresentation } }
+        return self.rings.map { $0.map { $0.geoJSONRepresentation } }
     }
 }

@@ -24,7 +24,7 @@ public struct GeoJSONPoint: GeoJSONFeature {
         self.coordinate = coordinate
     }
     
-    public var geometryCoordinates: [AnyObject] {
+    public var geometryCoordinates: [Any] {
         return self.coordinate.geoJSONRepresentation as [AnyObject]
     }
 }

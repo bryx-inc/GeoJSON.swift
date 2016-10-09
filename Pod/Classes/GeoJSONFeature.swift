@@ -11,7 +11,7 @@ import CoreLocation
 
 public protocol GeoJSONFeature {
     static var type: String { get }
-    var geometryCoordinates: [AnyObject] { get }
+    var geometryCoordinates: [Any] { get }
     var dictionaryRepresentation: [String: Any] { get }
     init?(dictionary: [String: Any])
 }
@@ -28,10 +28,10 @@ extension GeoJSONFeature {
             "properties": [:]
         ]
     }
-    public var geometryCoordinates: [AnyObject] {
+    public var geometryCoordinates: [Any] {
         return []
     }
-    public init?(dictionary: [String: AnyObject]) {
+    public init?(dictionary: [String: Any]) {
         return nil
     }
 }
