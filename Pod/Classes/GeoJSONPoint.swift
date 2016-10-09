@@ -15,8 +15,8 @@ public struct GeoJSONPoint: GeoJSONFeature {
     
     public static var type: String { return "Point" }
     
-    public init?(dictionary: [String: AnyObject]) {
-        guard let coordinate = (dictionary["coordinates"] as? [Double])?.coordinateRepresentation where CLLocationCoordinate2DIsValid(coordinate) else { return nil }
+    public init?(dictionary: [String: Any]) {
+        guard let coordinate = (dictionary["coordinates"] as? [Double])?.coordinateRepresentation , CLLocationCoordinate2DIsValid(coordinate) else { return nil }
         self.init(coordinate: coordinate)
     }
     
@@ -25,6 +25,6 @@ public struct GeoJSONPoint: GeoJSONFeature {
     }
     
     public var geometryCoordinates: [AnyObject] {
-        return self.coordinate.geoJSONRepresentation
+        return self.coordinate.geoJSONRepresentation as [AnyObject]
     }
 }

@@ -1,6 +1,6 @@
 # GeoJSON
 
-A GeoJSON Model for Swift 2.0. Compatible with iOS 7 and up.
+A GeoJSON Model for Swift 3.0. Compatible with iOS 8 and up.  For earlier versions of Swift and Xcode 7 please use version 0.2.0
 
 [![Version](https://img.shields.io/cocoapods/v/GeoJSON.svg?style=flat)](http://cocoapods.org/pods/GeoJSON)
 [![License](https://img.shields.io/cocoapods/l/GeoJSON.svg?style=flat)](http://cocoapods.org/pods/GeoJSON)

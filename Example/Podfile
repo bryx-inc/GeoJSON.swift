@@ -1,12 +1,12 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'GeoJSON_Example', :exclusive => true do
+target 'GeoJSON_Example' do
   pod "GeoJSON", :path => "../"
+  
 end
 
-target 'GeoJSON_Tests', :exclusive => true do
+target 'GeoJSON_Tests' do
   pod "GeoJSON", :path => "../"
-
   
 end

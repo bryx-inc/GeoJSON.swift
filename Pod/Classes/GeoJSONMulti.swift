@@ -9,12 +9,12 @@
 import Foundation
 import CoreLocation
 
-public struct GeoJSONMulti<FeatureType where FeatureType: GeoJSONFeature>: GeoJSONFeature {
+public struct GeoJSONMulti<FeatureType>: GeoJSONFeature where FeatureType: GeoJSONFeature {
     public static var type: String { return "Multi" + FeatureType.type }
     
     public let features: [FeatureType]
     
-    public init?(dictionary: [String: AnyObject]) {
+    public init?(dictionary: [String: Any]) {
         guard let featureArrays = dictionary["coordinates"] as? [AnyObject] else { return nil }
         let features = featureArrays.flatMap { FeatureType.init(dictionary: ["coordinates": $0]) }
         self.init(features: features)
@@ -24,7 +24,7 @@ public struct GeoJSONMulti<FeatureType where FeatureType: GeoJSONFeature>: GeoJS
         self.features = features
     }
     
-    public var geometryCoordinates: [AnyObject] {
+    public var geometryCoordinates: [Any] {
         return self.features.map { $0.geometryCoordinates }
     }
 }

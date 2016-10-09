@@ -1,16 +1,15 @@
 {
   "name": "GeoJSON",
-  "version": "0.1.0",
-  "summary": "A short description of GeoJSON.",
-  "description": "An optional longer description of GeoJSON\n\n* Markdown format.\n* Don't worry about the indent, we strip it!",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/GeoJSON",
+  "version": "0.3.0",
+  "summary": "A GeoJSON model for Swift 3.0.",
+  "homepage": "https://github.com/bryx-inc/GeoJSON.swift",
   "license": "MIT",
   "authors": {
     "Harlan Haskins": "harlan@harlanhaskins.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/GeoJSON.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/bryx-inc/GeoJSON.swift.git",
+    "tag": "0.3.0"
   },
   "platforms": {
     "ios": "8.0"
