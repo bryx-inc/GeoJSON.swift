@@ -14,16 +14,16 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // After 1 second, drop a pin.
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), dispatch_get_main_queue()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.dropPin()
         }
     }
     
     func dropPin() {
-        let geoJSONDictionary: [String: AnyObject] = [
+        let geoJSONDictionary: [String: Any] = [
             "coordinates": [-77.595453, 43.155059],
             "type": "Point"
         ]
@@ -35,11 +35,11 @@ class ViewController: UIViewController, MKMapViewDelegate {
         self.mapView.addAnnotation(annotation)
     }
     
-    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let view = MKPinAnnotationView()
         view.animatesDrop = true
         if #available(iOS 9.0, *) {
-            view.pinTintColor = UIColor.greenColor()
+            view.pinTintColor = UIColor.green
         }
         return view
     }

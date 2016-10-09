@@ -13,7 +13,7 @@ public struct GeoJSONLineString: GeoJSONFeature {
     public static var type: String { return "LineString" }
     internal let coordinates: [CLLocationCoordinate2D]
     
-    public init?(dictionary: [String: AnyObject]) {
+    public init?(dictionary: [String: Any]) {
         guard let coordinatePairs = (dictionary["coordinates"] as? [[[Double]]])?.first else { return nil }
         let coordinates = coordinatePairs.flatMap { $0.coordinateRepresentation }
         self.init(coordinates: coordinates)
@@ -23,7 +23,7 @@ public struct GeoJSONLineString: GeoJSONFeature {
         self.coordinates = coordinates
     }
     
-    public var geometryCoordinates: [AnyObject] {
+    public var geometryCoordinates: [Any] {
         return self.coordinates.map { $0.geoJSONRepresentation }
     }
 }

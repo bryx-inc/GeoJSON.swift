@@ -15,7 +15,7 @@ public struct GeoJSONPolygon: GeoJSONFeature {
     
     public static var type: String { return "Polygon" }
     
-    public init?(dictionary: [String: AnyObject]) {
+    public init?(dictionary: [String: Any]) {
         guard let ringArrays = dictionary["coordinates"] as? [[[Double]]] else { return nil }
         let rings = ringArrays.map { $0.flatMap { pair in pair.coordinateRepresentation } }
         self.init(rings: rings)
@@ -25,7 +25,7 @@ public struct GeoJSONPolygon: GeoJSONFeature {
         self.rings = rings
     }
     
-    public var geometryCoordinates: [AnyObject] {
+    public var geometryCoordinates: [Any] {
         return self.rings.map { $0.flatMap { $0.geoJSONRepresentation } }
     }
 }
