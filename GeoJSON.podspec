@@ -9,8 +9,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "GeoJSON"
-  s.version          = "0.2.0"
-  s.summary          = "A GeoJSON model for Swift 2.0."
+  s.version          = "0.3.0"
+  s.summary          = "A GeoJSON model for Swift 3.0."
   s.homepage         = "https://github.com/bryx-inc/GeoJSON.swift"
   s.license          = 'MIT'
   s.author           = { "Harlan Haskins" => "harlan@harlanhaskins.com" }
