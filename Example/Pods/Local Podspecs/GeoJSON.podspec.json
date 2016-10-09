@@ -1,7 +1,7 @@
 {
   "name": "GeoJSON",
-  "version": "0.2.0",
-  "summary": "A GeoJSON model for Swift 2.0.",
+  "version": "0.3.0",
+  "summary": "A GeoJSON model for Swift 3.0.",
   "homepage": "https://github.com/bryx-inc/GeoJSON.swift",
   "license": "MIT",
   "authors": {
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/bryx-inc/GeoJSON.swift.git",
-    "tag": "0.2.0"
+    "tag": "0.3.0"
   },
   "platforms": {
     "ios": "8.0"

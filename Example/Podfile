@@ -3,10 +3,10 @@ use_frameworks!
 
 target 'GeoJSON_Example' do
   pod "GeoJSON", :path => "../"
+  
 end
 
 target 'GeoJSON_Tests' do
   pod "GeoJSON", :path => "../"
-  pod "Nimble"
   
 end

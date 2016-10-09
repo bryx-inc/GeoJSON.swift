@@ -1,7 +1,6 @@
 import UIKit
 import XCTest
 import GeoJSON
-import Nimble
 
 class Tests: XCTestCase {
     
@@ -15,7 +14,6 @@ class Tests: XCTestCase {
         let point = GeoJSONPoint(dictionary: json)!
         let dictionary = point.dictionaryRepresentation["geometry"]!
         // Compiler can't decide what it wants here.  Warning with the `as!` force, error without it
-        expect(json as NSDictionary).to(equal(dictionary as! NSDictionary))
+        XCTAssertEqual(json as NSDictionary, dictionary as! NSDictionary)
     }
-    
 }
