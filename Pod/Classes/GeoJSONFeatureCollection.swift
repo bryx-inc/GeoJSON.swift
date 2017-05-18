@@ -11,9 +11,9 @@ import CoreLocation
 
 public struct GeoJSONFeatureCollection: GeoJSONFeature {
 
-    private(set) var features = [GeoJSONFeature]()
+    public(set) var features = [GeoJSONFeature]()
     
-    private static func featuresFromDictionary(dictionary: [String: Any]) -> [GeoJSONFeature] {
+    public static func featuresFromDictionary(dictionary: [String: Any]) -> [GeoJSONFeature] {
         var features = [GeoJSONFeature]()
         guard let type = dictionary["type"] as? String else { return [] }
         if let geometries = dictionary["geometries"] as? [[String: Any]], type == "GeometryCollection" {
