@@ -11,7 +11,7 @@ import CoreLocation
 
 public struct GeoJSONFeatureCollection: GeoJSONFeature {
 
-    public(set) var features = [GeoJSONFeature]()
+    public private(set) var features = [GeoJSONFeature]()
     
     public static func featuresFromDictionary(dictionary: [String: Any]) -> [GeoJSONFeature] {
         var features = [GeoJSONFeature]()
