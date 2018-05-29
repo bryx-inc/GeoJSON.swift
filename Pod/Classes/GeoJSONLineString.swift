@@ -15,7 +15,7 @@ public struct GeoJSONLineString: GeoJSONFeature {
     
     public init?(dictionary: [String: Any]) {
         guard let coordinatePairs = (dictionary["coordinates"] as? [[[Double]]])?.first else { return nil }
-        let coordinates = coordinatePairs.flatMap { $0.coordinateRepresentation }
+        let coordinates = coordinatePairs.compactMap { $0.coordinateRepresentation }
         self.init(coordinates: coordinates)
     }
     
