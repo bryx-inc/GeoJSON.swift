@@ -1,16 +1,16 @@
 PODS:
-  - GeoJSON (0.3.0)
+  - GeoJSON (0.3.2)
 
 DEPENDENCIES:
   - GeoJSON (from `../`)
 
 EXTERNAL SOURCES:
   GeoJSON:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  GeoJSON: 3023652f5fbfe29b49c9ead35dfba18405a7a5ec
+  GeoJSON: 399c6576a86ff53a2db8f03f38556c8c3eca4443
 
 PODFILE CHECKSUM: 97ff85b4eed08a4c0d0699339b771bd8328ff7c8
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.5.3
