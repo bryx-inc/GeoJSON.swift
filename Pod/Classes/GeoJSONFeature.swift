@@ -22,8 +22,8 @@ extension GeoJSONFeature {
         return [
             "geometry": [
                 "coordinates": self.geometryCoordinates,
-                "type": type(of: self).type
-            ],
+                "type": Self.type
+                ] as [String: Any],
             "type": "Feature",
             "properties": [:]
         ]

@@ -16,7 +16,7 @@ public struct GeoJSONMulti<FeatureType>: GeoJSONFeature where FeatureType: GeoJS
     
     public init?(dictionary: [String: Any]) {
         guard let featureArrays = dictionary["coordinates"] as? [Any] else { return nil }
-        let features = featureArrays.flatMap { FeatureType.init(dictionary: ["coordinates": $0]) }
+        let features = featureArrays.compactMap { FeatureType.init(dictionary: ["coordinates": $0]) }
         self.init(features: features)
     }
     
