@@ -5,7 +5,7 @@
 //  Created by Ian Grossberg on 9/4/18.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for GeoJSON.
 FOUNDATION_EXPORT double GeoJSONVersionNumber;
