@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "GeoJSON"
-  s.version          = "0.3.3"
+  s.version          = "0.4.3"
   s.summary          = "A GeoJSON model for Swift."
   s.homepage         = "https://github.com/bryx-inc/GeoJSON.swift"
   s.license          = 'MIT'
@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
+  s.source_files = 'Sources/GeoJSON.swift/**/*'
 end
