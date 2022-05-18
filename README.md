@@ -33,6 +33,7 @@ print(point.dictionaryRepresentation)
 
 ## Installation
 
+### CocoaPods
 GeoJSON is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
@@ -40,9 +41,18 @@ it, simply add the following line to your Podfile:
 pod "GeoJSON"
 ```
 
+### Swift Package Manager
+GEOJSON is also available through [Swift Package Manager](https://www.swift.org/package-manager/). [To install follow these instructions](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app) or add
+
+``` Swift
+dependencies: [
+    .package(url: "git@github.com:bryx-inc/GeoJSON.swift.git", .upToNextMajor(from: "0.4.3"))
+]
+```
+
 ## Maintainer
 
-Adam Binsz ([@adambinsz](https://github.com/adambinsz))
+Lonnie Gerol ([@lontronix](https://github.com/lontronix))
 
 ## Author
 
