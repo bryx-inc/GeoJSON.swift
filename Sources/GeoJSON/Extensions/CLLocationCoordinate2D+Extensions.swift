@@ -28,3 +28,30 @@ extension CLLocationCoordinate2D: Equatable {
         return lhs.distanceToCoordinate(rhs) < 0.5
     }
 }
+
+extension CLLocationCoordinate2D {
+    enum CodingKeys: String, CodingKey {
+        case coordinates
+    }
+}
+
+/**
+ conforms to codable and produces json in the form `{ "coordinates": [ lat, long ] }`
+ to be consistent with the GeoJSON standard
+ */
+extension CLLocationCoordinate2D: Codable {
+    
+    public func encode(to encoder: Encoder) throws {
+        let coordArray: [Double] = [self.latitude, self.longitude]
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(coordArray, forKey: .coordinates)
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        let coordArray = try values.decode([Double].self, forKey: .coordinates)
+        self.init(latitude: coordArray[0], longitude: coordArray[1])
+    }
+    
+}
+
