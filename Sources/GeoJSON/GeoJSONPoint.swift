@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-public struct GeoJSONPoint: GeoJSONFeature {
+public struct GeoJSONPoint: GeoJSONFeature, Codable {
     
     let coordinate: CLLocationCoordinate2D
     let lastUpdated: Date?
