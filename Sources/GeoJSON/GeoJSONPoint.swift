@@ -20,7 +20,7 @@ public struct GeoJSONPoint: GeoJSONFeature {
         self.init(coordinate: coordinate)
     }
     
-    init(coordinate: CLLocationCoordinate2D) {
+    public init(coordinate: CLLocationCoordinate2D) {
         self.coordinate = coordinate
     }
     
